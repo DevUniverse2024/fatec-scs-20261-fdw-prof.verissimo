@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Prática: Web Forensic Challenge - Fatec SCS</title>
+    <style>
+        :root {
+            --primary-color: #b01212;
+            --secondary-color: #2c3e50;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+        }
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: var(--bg-color); 
+        }
+        header { 
+            background-color: var(--primary-color); 
+            color: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            margin-bottom: 25px; 
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+        .card { 
+            background: var(--card-bg); 
+            padding: 25px; 
+            margin-top: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 5px solid #ddd;
+        }
+        .mission { border-left-color: #3498db; }
+        .orientacoes { border-left-color: #f1c40f; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th { background-color: var(--secondary-color); color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        code { 
+            background-color: #eee; 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+            font-family: 'Consolas', monospace; 
+            color: #c7254e;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            background: #e1e1e1;
+            margin-bottom: 10px;
+        }
+        footer { 
+            margin-top: 50px; 
+            text-align: center; 
+            font-size: 0.9em; 
+            color: #7f8c8d; 
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Segurança da Informação</h1>
+    <p>Disciplina: Ferramentas de Desenvolvimento Web | <strong>Prof. Veríssimo</strong></p>
+    <p>Fatec São Caetano do Sul - Segurança da Informação</p>
+</header>
+
+<h2 class="section-title">I. O Desafio Prático</h2>
+
+<div class="card mission">
+    <span class="badge" style="background: #d4edda; color: #155724;">PARTE 1</span>
+    <h3>Investigação de Infraestrutura (DNS)</h3>
+    <p>Utilize o terminal (CLI) para identificar a resolução de nomes do domínio <code>https://fatecsaocaetano.cps.sp.gov.br/</code>.</p>
+    <ul>
+        <li>Comando: <code>nslookup https://fatecsaocaetano.cps.sp.gov.br/</code></li>
+        <li><strong>Entregável:</strong> Print do terminal e identificação se o IP resultante é estático ou dinâmico (baseado no material de aula.</li>
+    </ul>
+</div>
+
+<div class="card mission">
+    <span class="badge" style="background: #d1ecf1; color: #0c5460;">PARTE 2</span>
+    <h3>Anatomia do Tráfego (DevTools)</h3>
+    <p>Capture uma requisição completa no site da Fatec usando a aba <strong>Network</strong> do navegador.</p>
+    <ul>
+        <li><strong>Analise:</strong> O Verbo HTTP (GET/POST), o Status Code retornado e o campo <code>User-Agent</code>.</li>
+        <li><strong>Entregável:</strong> Descrição técnica da finalidade do Status Code encontrado (Ex: Por que recebemos 200 OK e não 304 Not Modified?).</li>
+    </ul>
+</div>
+
+<h2 class="section-title">II. Orientações de Entrega</h2>
+
+<div class="card orientacoes">
+    <h3>Artefatos e Formatos</h3>
+    <p>O resultado da investigação deve ser compilado em um único arquivo conforme as regras abaixo:</p>
+    <ul>
+        <li><strong>Documento Principal:</strong> Relatório em formato <strong>PDF</strong>.</li>
+        <li><strong>Recomendação:</strong> O uso de <strong>LaTeX (Overleaf)</strong> é altamente encorajado para a formatação técnica.</li>
+        <li><strong>Nome do Arquivo:</strong> <code>FDW_Atividade1_NomeSobrenome.pdf</code></li>
+    </ul>
+</div>
+
+<h2 class="section-title">III. Critérios de Avaliação</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Critério</th>
+            <th>Descrição</th>
+            <th>Peso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Precisão Técnica</strong></td>
+            <td>Uso correto de conceitos como Statelessness, Verbos e Headers.</td>
+            <td>3.0</td>
+        </tr>
+        <tr>
+            <td><strong>Análise de Fluxo</strong></td>
+            <td>Capacidade de descrever o "Caminho do Pacote" (DNS até Response).</td>
+            <td>3.0</td>
+        </tr>
+        <tr>
+            <td><strong>Domínio de Ferramenta</strong></td>
+            <td>Evidências claras de uso do Inspetor de Elementos e Terminal.</td>
+            <td>2.0</td>
+        </tr>
+        <tr>
+            <td><strong>Qualidade Documental</strong></td>
+            <td>Organização, clareza e formatação do relatório técnico.</td>
+            <td>2.0</td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 5px; margin-top: 20px; border: 1px solid #ffeeba;">
+    <strong>Atenção:</strong> Trabalhos que apresentem evidências de plágio ou uso de IA sem a devida análise crítica e capturas de tela originais serão desconsiderados.
+</div>
+
+<footer>
+    <p>Material de Apoio à Aula de Fundamentos da Web - 2026</p>
+    <p>Professor Veríssimo - carlos.pereira70@fatec.sp.gov.br</p>
+</footer>
+
+</body>
+</html>
