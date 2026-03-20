@@ -1,0 +1,49 @@
+//Sinstaxe básica
+const aluno = {
+    nome: "Carlos",
+    curso: "Analise e Desenvolvimento de Sistemas",
+    semestre: 3,
+     
+};
+
+//Acessando Propriedades
+const carro = { marca: "Toyota" };
+
+// Adicionando propriedade
+carro.modelo = "Corolla";
+
+// Deletando propriedade
+delete carro.marca;
+
+//Nota¸c˜ao de Ponto vs. Colchetes
+
+const curso = {
+    titulo: "Analise e Desenvolvimento de Sistemas",
+    "carga horaria": 2000,
+    sigla: "ADS"
+};
+
+// Notacao de ponto (mais limpa)
+console.log(curso.titulo); 
+
+// Notacao de colchetes (obrigatoria para nomes com espacos)
+console.log(curso["carga horaria"]);
+
+// Uso com variaveis
+const busca = "sigla";
+console.log(curso[busca]); // Retorna "ADS"
+
+//Adicionando e Alterando Propriedades
+const config = { tema: "dark" };
+
+// Alterando valor existente
+config.tema = "light";
+
+// Criando nova propriedade dinamicamente
+config.idioma = "pt-br";
+
+//Removendo Propriedades
+const sistema = { id: 101, status: "ativo", temporario: true };
+
+delete sistema.temporario;
+console.log(sistema); // { id: 101, status: "ativo" }
